@@ -3,10 +3,11 @@ dependencies:
   '@babel/core': 7.13.8
   '@babel/node': 7.13.0_@babel+core@7.13.8
   '@babel/preset-env': 7.13.9_@babel+core@7.13.8
+  axios: 0.21.1
   graphql: 15.5.0
-  graphql-server-koa: 1.4.1_graphql@15.5.0
   koa: 2.13.1
   koa-bodyparser: 4.3.0
+  koa-graphql: 0.8.0_graphql@15.5.0
   koa-router: 10.0.0
 lockfileVersion: 5.2
 packages:
@@ -1040,52 +1041,6 @@ packages:
     optional: true
     resolution:
       integrity: sha512-mM8522psRCqzV+6LhomX5wgp25YVibjh8Wj23I5RPkPppSVSjyKD2A2mBJmWGa+KN7f2D6LNh9jkBCeyLktzjg==
-  /apollo-cache-control/0.1.1_graphql@15.5.0:
-    dependencies:
-      graphql: 15.5.0
-      graphql-extensions: 0.0.10_graphql@15.5.0
-    dev: false
-    engines:
-      node: '>=4.0'
-    peerDependencies:
-      graphql: 0.10.x - 0.13.x
-    resolution:
-      integrity: sha512-XJQs167e9u+e5ybSi51nGYr70NPBbswdvTEHtbtXbwkZ+n9t0SLPvUcoqceayOSwjK1XYOdU/EKPawNdb3rLQA==
-  /apollo-server-core/1.4.0_graphql@15.5.0:
-    dependencies:
-      apollo-cache-control: 0.1.1_graphql@15.5.0
-      apollo-tracing: 0.1.4_graphql@15.5.0
-      graphql: 15.5.0
-      graphql-extensions: 0.0.10_graphql@15.5.0
-    dev: false
-    peerDependencies:
-      graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0
-    resolution:
-      integrity: sha512-BP1Vh39krgEjkQxbjTdBURUjLHbFq1zeOChDJgaRsMxGtlhzuLWwwC6lLdPatN8jEPbeHq8Tndp9QZ3iQZOKKA==
-  /apollo-server-koa/1.4.0_graphql@15.5.0:
-    dependencies:
-      apollo-server-core: 1.4.0_graphql@15.5.0
-      apollo-server-module-graphiql: 1.4.0
-    dev: false
-    peerDependencies:
-      graphql: '*'
-    resolution:
-      integrity: sha512-iXoyEcYqlaFdTvilJ+Qlyi+B5Gj8O1Iy1FwbeoXwBiZs6Uz9xQpd4WkwCm/1dGtEGdvD26U5gycIxpTwrNEKnw==
-  /apollo-server-module-graphiql/1.4.0:
-    dev: false
-    resolution:
-      integrity: sha512-GmkOcb5he2x5gat+TuiTvabnBf1m4jzdecal3XbXBh/Jg+kx4hcvO3TTDFQ9CuTprtzdcVyA11iqG7iOMOt7vA==
-  /apollo-tracing/0.1.4_graphql@15.5.0:
-    dependencies:
-      graphql: 15.5.0
-      graphql-extensions: 0.0.10_graphql@15.5.0
-    dev: false
-    engines:
-      node: '>=4.0'
-    peerDependencies:
-      graphql: 0.10.x - 0.13.x
-    resolution:
-      integrity: sha512-Uv+1nh5AsNmC3m130i2u3IqbS+nrxyVV3KYimH5QKsdPjxxIQB3JAT+jJmpeDxBel8gDVstNmCh82QSLxLSIdQ==
   /arr-diff/4.0.0:
     dev: false
     engines:
@@ -1134,6 +1089,12 @@ packages:
     optional: true
     resolution:
       integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+  /axios/0.21.1:
+    dependencies:
+      follow-redirects: 1.13.3
+    dev: false
+    resolution:
+      integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /babel-plugin-dynamic-import-node/2.3.3:
     dependencies:
       object.assign: 4.1.2
@@ -1170,6 +1131,13 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-OUrYG9iKPKz8NxswXbRAdSwF0GhRdIEMTloQATJi4bDuFqrXaXcCUT/VGNrr8pBcjMh1RxZ7Xt9cytVJTJfvMg==
+  /babel-runtime/6.26.0:
+    dependencies:
+      core-js: 2.6.12
+      regenerator-runtime: 0.11.1
+    dev: false
+    resolution:
+      integrity: sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
   /balanced-match/1.0.0:
     dev: false
     resolution:
@@ -1635,6 +1603,20 @@ packages:
     optional: true
     resolution:
       integrity: sha1-t3c14xXOMPa27/D4OwQVGiJEliI=
+  /express-graphql/0.7.1_graphql@15.5.0:
+    dependencies:
+      accepts: 1.3.7
+      content-type: 1.0.4
+      graphql: 15.5.0
+      http-errors: 1.8.0
+      raw-body: 2.4.1
+    dev: false
+    engines:
+      node: '>= 6.x'
+    peerDependencies:
+      graphql: ^0.12.0 || ^0.13.0 || ^14.0.0
+    resolution:
+      integrity: sha512-YpheAqTbSKpb5h57rV2yu2dPNUBi4FvZDspZ5iEV3ov34PBRgnM4lEBkv60+vZRJ6SweYL14N8AGYdov7g6ooQ==
   /extend-shallow/2.0.1:
     dependencies:
       is-extendable: 0.1.1
@@ -1709,6 +1691,17 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
+  /follow-redirects/1.13.3:
+    dev: false
+    engines:
+      node: '>=4.0'
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    resolution:
+      integrity: sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
   /for-in/1.0.2:
     dev: false
     engines:
@@ -1812,27 +1805,6 @@ packages:
     optional: true
     resolution:
       integrity: sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
-  /graphql-extensions/0.0.10_graphql@15.5.0:
-    dependencies:
-      core-js: 2.6.12
-      graphql: 15.5.0
-      source-map-support: 0.5.19
-    dev: false
-    engines:
-      node: '>=4.0'
-    peerDependencies:
-      graphql: 0.10.x - 0.13.x
-    resolution:
-      integrity: sha512-TnQueqUDCYzOSrpQb3q1ngDSP2otJSF+9yNLrQGPzkMsvnQ+v6e2d5tl+B35D4y+XpmvVnAn4T3ZK28mkILveA==
-  /graphql-server-koa/1.4.1_graphql@15.5.0:
-    dependencies:
-      apollo-server-koa: 1.4.0_graphql@15.5.0
-    deprecated: This package has been renamed to 'apollo-server-koa'.  Please update your dependencies!
-    dev: false
-    peerDependencies:
-      graphql: '*'
-    resolution:
-      integrity: sha512-JLcC4yW5oFk5vIUr8Jcw5ylXNNb/GXlMCflamHdN9BuS95MqYk3p5oIxknGfYPSAwJweGGUubLGK7MKBU9FBlw==
   /graphql/15.5.0:
     dev: false
     engines:
@@ -2307,6 +2279,20 @@ packages:
       node: '>= 4'
     resolution:
       integrity: sha1-2kCHXfSd4FOQmNFwC1CCDOvNIdA=
+  /koa-graphql/0.8.0_graphql@15.5.0:
+    dependencies:
+      babel-runtime: 6.26.0
+      express-graphql: 0.7.1_graphql@15.5.0
+      graphql: 15.5.0
+      http-errors: 1.8.0
+      thenify: 3.3.1
+    dev: false
+    engines:
+      node: '>= 6.x'
+    peerDependencies:
+      graphql: ^0.12.0 || ^0.13.0 || ^14.0.0
+    resolution:
+      integrity: sha512-mzXQjRQxcxKM78Ds/0/JEfy4DCt+ZxLKhCjjWsqpLtXie/b8LeF1MGiLYRIMKaw61ZbODLs3+WMdf1DJn1KhEA==
   /koa-router/10.0.0:
     dependencies:
       debug: 4.3.1
@@ -2771,6 +2757,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
+  /regenerator-runtime/0.11.1:
+    dev: false
+    resolution:
+      integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
   /regenerator-runtime/0.13.7:
     dev: false
     resolution:
@@ -3035,6 +3025,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
+  /thenify/3.3.1:
+    dependencies:
+      any-promise: 1.3.0
+    dev: false
+    resolution:
+      integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==
   /to-fast-properties/2.0.0:
     dev: false
     engines:
@@ -3230,8 +3226,9 @@ specifiers:
   '@babel/core': ^7.13.8
   '@babel/node': ^7.13.0
   '@babel/preset-env': ^7.13.9
+  axios: ^0.21.1
   graphql: ^15.5.0
-  graphql-server-koa: ^1.4.1
   koa: ^2.13.1
   koa-bodyparser: ^4.3.0
+  koa-graphql: ^0.8.0
   koa-router: ^10.0.0

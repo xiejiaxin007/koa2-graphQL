@@ -22,10 +22,11 @@
     "@babel/core": "^7.13.8",
     "@babel/node": "^7.13.0",
     "@babel/preset-env": "^7.13.9",
+    "axios": "^0.21.1",
     "graphql": "^15.5.0",
-    "graphql-server-koa": "^1.4.1",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
+    "koa-graphql": "^0.8.0",
     "koa-router": "^10.0.0"
   }
 }
