@@ -1,35 +1,42 @@
 /*
  * @author: xiejiaxin
+ * @Date: 2021-03-06 22:58:11
+ * @LastEditors: xiejiaxin
+ * @LastEditTime: 2021-03-06 22:59:16
+ * @description: file content
+ */
+/*
+ * @author: xiejiaxin
  * @Date: 2021-03-06 17:47:23
  * @LastEditors: xiejiaxin
- * @LastEditTime: 2021-03-06 23:26:04
+ * @LastEditTime: 2021-03-06 22:43:27
  * @description: file content
  */
 const Koa = require('koa');
 // koa-router@7.x
 const Router = require('koa-router');
 const graphqlHTTP = require('koa-graphql');
-import BBSchema from './BBSchema.js';
+import MyGraphQLSchema from './MyGraphQLSchema.js';
 import axios from './axios.js';
 
 // 登录接口
-const getLoginInfo = () => {
-    return axios.post('/api/bbs-api-user/login', {
-        "job_number": "35",
-        "password": "Julive@888"
-    });
-};
+const loginInfo = () => {
+    return axios.post('/backend-api/api-user/login', {
+        job_number: '25',
+        password: "Julive@666"
+    })
+}
 
 const app = new Koa()
 
 const router = new Router();
 // 先登录
-getLoginInfo().then(result => {
+loginInfo().then(result => {
     let cookieVal = result.headers['set-cookie'];
     // 设置请求cookie
     axios.defaults.headers['cookie'] = cookieVal;
     router.all('/graphql', graphqlHTTP({
-      schema: BBSchema,
+      schema: MyGraphQLSchema,
       graphiql: true
     }));
     

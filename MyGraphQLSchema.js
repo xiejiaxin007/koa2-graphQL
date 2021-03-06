@@ -2,8 +2,8 @@
  * @author: xiejiaxin
  * @Date: 2021-03-06 21:19:28
  * @LastEditors: xiejiaxin
- * @LastEditTime: 2021-03-06 21:23:28
- * @description: file content
+ * @LastEditTime: 2021-03-06 23:09:14
+ * @description: 支撑系统接口测试，对应的启动文件是test.js
  */
 import {
     graphql,
@@ -15,21 +15,7 @@ import {
     GraphQLBoolean
 } from 'graphql';
 
-import axiosApi from 'axios';
-// 设置接口请求域名
-let axios = axiosApi.create({
-    baseURL: 'http://test24backend.comjia.com'
-})
-// 登录cookie保存
-let cookieVal;
-
-// 登录接口
-const loginInfo = () => {
-    return axios.post('/backend-api/api-user/login', {
-        job_number: '25',
-        password: "Julive@666"
-    })
-}
+import axios from './axios.js';
 // 切换身份接口 
 const switchRole = (req) => {
     return axios.post('/backend-api/common/switch-role', {
@@ -115,10 +101,7 @@ const schema = new GraphQLSchema({
             tags: {
                 type: new GraphQLList(TagGroupType),
                 async resolve() {
-                    let result = await loginInfo();
-                    cookieVal = result.headers['set-cookie'];
-                    // 设置请求cookie
-                    axios.defaults.headers['cookie'] = cookieVal
+                    console.log(axios.defaults.headers.cookie)
                     await switchRole();
                     let { data } = await axios.get('/backend-api/project/tags');
                     return data.data;
