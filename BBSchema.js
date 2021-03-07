@@ -2,7 +2,7 @@
  * @author: xiejiaxin
  * @Date: 2021-03-06 21:19:28
  * @LastEditors: xiejiaxin
- * @LastEditTime: 2021-03-06 23:30:20
+ * @LastEditTime: 2021-03-07 22:04:29
  * @description: BBS接口测试
  */
 import {
@@ -20,10 +20,48 @@ import axios from './axios.js';
 const getMenuInfo = () => {
     return axios.post('/api/bbs-api-user/menu');
 };
-
-// 菜单信息
+// 单个菜单信息
 const MenuType = new GraphQLObjectType({
     name: 'MenuType',
+    fields: {
+        id: {
+            type: GraphQLString
+        },
+        is_new: {
+            type: GraphQLInt
+        },
+        is_out_url: {
+            type: GraphQLInt
+        },
+        menu_name: {
+            type: GraphQLString
+        },
+        menu_url: {
+            type: GraphQLString
+        },
+        show_index: {
+            type: GraphQLString
+        },
+        type: {
+            type: GraphQLString
+        },
+        // child: {
+        //     type: new GraphQLList(MenuType),
+        //     resolve(obj) {
+        //         return obj.child;
+        //     }
+        // },
+        role: {
+            type: new GraphQLList(GraphQLString)
+        },
+        route: {
+            type: new GraphQLList(GraphQLString)
+        }
+    }
+});
+// 菜单信息
+const InfoType = new GraphQLObjectType({
+    name: 'InfoType',
     fields: {
         active: {
             type: GraphQLString
@@ -37,9 +75,27 @@ const MenuType = new GraphQLObjectType({
                 fields: {
                     city_id: {
                         type: GraphQLInt
+                    },
+                    ip: {
+                        type: GraphQLString
+                    },
+                    login_employee_id: {
+                        type: GraphQLInt
+                    },
+                    product_id: {
+                        type: GraphQLInt
+                    },
+                    role: {
+                        type: GraphQLString
                     }
                 }
             })
+        },
+        menu: {
+            type: new GraphQLList(MenuType),
+            resolve(obj) {
+                return obj.menu;
+            }
         }
     }
 });
@@ -56,8 +112,8 @@ const PageInfoType = new GraphQLObjectType({
         photos_route: {
             type: GraphQLString
         },
-        menu: {
-            type: MenuType,
+        info: {
+            type: InfoType,
             async resolve() {
                 let { data } = await getMenuInfo();
                 return data.data;

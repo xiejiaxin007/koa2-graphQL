@@ -9,6 +9,7 @@ dependencies:
   koa-bodyparser: 4.3.0
   koa-graphql: 0.8.0_graphql@15.5.0
   koa-router: 10.0.0
+  koa-static: 5.0.0
 lockfileVersion: 5.2
 packages:
   /@babel/cli/7.13.0_@babel+core@7.13.8:
@@ -1439,6 +1440,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
+  /debug/3.2.7:
+    dependencies:
+      ms: 2.1.3
+    dev: false
+    resolution:
+      integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   /debug/4.3.1:
     dependencies:
       ms: 2.1.2
@@ -1891,6 +1898,17 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-rdw7q6GTlibqVVbXr0CKelfV5iY8G2HqEUkhSk297BMbSpSL8crXC+9rjKoMcZZEsksX30le6f/4ul4E28gegw==
+  /http-errors/1.6.3:
+    dependencies:
+      depd: 1.1.2
+      inherits: 2.0.3
+      setprototypeof: 1.1.0
+      statuses: 1.5.0
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-i1VoC7S+KDoLW/TqLjhYC+HZMg0=
   /http-errors/1.7.3:
     dependencies:
       depd: 1.1.2
@@ -1936,6 +1954,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=
+  /inherits/2.0.3:
+    dev: false
+    resolution:
+      integrity: sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
   /inherits/2.0.4:
     dev: false
     resolution:
@@ -2305,6 +2327,25 @@ packages:
       node: '>= 8.0.0'
     resolution:
       integrity: sha512-gAE5J1gBQTvfR8rMMtMUkE26+1MbO3DGpGmvfmM2pR9Z7w2VIb2Ecqeal98yVO7+4ltffby7gWOzpCmdNOQe0w==
+  /koa-send/5.0.1:
+    dependencies:
+      debug: 4.3.1
+      http-errors: 1.8.0
+      resolve-path: 1.4.0
+    dev: false
+    engines:
+      node: '>= 8'
+    resolution:
+      integrity: sha512-tmcyQ/wXXuxpDxyNXv5yNNkdAMdFRqwtegBXUaowiQzUKqJehttS0x2j0eOZDQAyloAth5w6wwBImnFzkUz3pQ==
+  /koa-static/5.0.0:
+    dependencies:
+      debug: 3.2.7
+      koa-send: 5.0.1
+    dev: false
+    engines:
+      node: '>= 7.6.0'
+    resolution:
+      integrity: sha512-UqyYyH5YEXaJrf9S8E23GoJFQZXkBVJ9zYYMPGz919MSX1KuvAcycIuS0ci150HCoPf4XQVhQ84Qf8xRPWxFaQ==
   /koa/2.13.1:
     dependencies:
       accepts: 1.3.7
@@ -2452,6 +2493,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
+  /ms/2.1.3:
+    dev: false
+    resolution:
+      integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
   /nanomatch/1.2.13:
     dependencies:
       arr-diff: 4.0.0
@@ -2824,6 +2869,15 @@ packages:
     optional: true
     resolution:
       integrity: sha1-jcrkcOHIirwtYA//Sndihtp15jc=
+  /resolve-path/1.4.0:
+    dependencies:
+      http-errors: 1.6.3
+      path-is-absolute: 1.0.1
+    dev: false
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-xL2p9e+y/OZSR4c6s2u02DT+Fvc=
   /resolve-url/0.2.1:
     deprecated: https://github.com/lydell/resolve-url#deprecated
     dev: false
@@ -2886,6 +2940,10 @@ packages:
     optional: true
     resolution:
       integrity: sha512-JxHc1weCN68wRY0fhCoXpyK55m/XPHafOmK4UWD7m2CI14GMcFypt4w/0+NV5f/ZMby2F6S2wwA7fgynh9gWSw==
+  /setprototypeof/1.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-BvE/TwpZX4FXExxOxZyRGQQv651MSwmWKZGqvmPcRIjDqWub67kTKuIMx43cZZrS/cBBzwBcNDWoFxt2XEFIpQ==
   /setprototypeof/1.1.1:
     dev: false
     resolution:
@@ -3232,3 +3290,4 @@ specifiers:
   koa-bodyparser: ^4.3.0
   koa-graphql: ^0.8.0
   koa-router: ^10.0.0
+  koa-static: ^5.0.0
