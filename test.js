@@ -2,7 +2,7 @@
  * @author: xiejiaxin
  * @Date: 2021-03-06 22:58:11
  * @LastEditors: xiejiaxin
- * @LastEditTime: 2021-03-06 22:59:16
+ * @LastEditTime: 2021-03-14 17:12:18
  * @description: file content
  */
 /*
@@ -16,8 +16,8 @@ const Koa = require('koa');
 // koa-router@7.x
 const Router = require('koa-router');
 const graphqlHTTP = require('koa-graphql');
-import MyGraphQLSchema from './MyGraphQLSchema.js';
-import axios from './axios.js';
+import MyGraphQLSchema from './controllers/backend/MyGraphQLSchema';
+import axios from './middlewares/http/axios';
 
 // 登录接口
 const loginInfo = () => {

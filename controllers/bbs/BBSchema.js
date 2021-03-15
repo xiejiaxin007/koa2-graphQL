@@ -2,7 +2,7 @@
  * @author: xiejiaxin
  * @Date: 2021-03-06 21:19:28
  * @LastEditors: xiejiaxin
- * @LastEditTime: 2021-03-07 22:04:29
+ * @LastEditTime: 2021-03-13 22:22:19
  * @description: BBS接口测试
  */
 import {
@@ -14,7 +14,7 @@ import {
     GraphQLInt,
     GraphQLBoolean
 } from 'graphql';
-import axios from './axios.js';
+import axios from '../../middlewares/http/axios';
 
 // 获取用户信息接口
 const getMenuInfo = () => {
